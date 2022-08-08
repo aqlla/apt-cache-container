@@ -12,11 +12,11 @@ RUN apt-get update && \
 
 EXPOSE 3142
 
-CMD tail -f /var/log/apt-cacher-ng/*
+CMD /etc/init.d/apt-cacher-ng start && \
     # chmod 777 /var/cache/apt-cacher-ng && \
     # echo "PassThroughPattern: .*" >> /etc/apt-cacher-ng/acng.conf && \
     # Start the service
-    # /etc/init.d/apt-cacher-ng start && \
+    # 
     # Output all logs of apt-cacher-ng
-    # tail -f /var/log/apt-cacher-ng/*
+    tail -f /var/log/apt-cacher-ng/*
 
