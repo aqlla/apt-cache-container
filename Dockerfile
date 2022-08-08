@@ -1,6 +1,9 @@
 FROM debian:bullseye-slim
 # FROM ubuntu:22.04
 
+ENV TERM linux
+ENV DEBIAN_FRONTEND noninteractive 
+
 VOLUME ["/var/cache/apt-cacher-ng"]
 
 RUN apt-get update && \
