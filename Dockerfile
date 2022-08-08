@@ -14,7 +14,7 @@ EXPOSE 3142
 
 CMD chmod 777 /var/cache/apt-cacher-ng && \
     /etc/init.d/apt-cacher-ng start && \
-    # echo "PassThroughPattern: .*" >> /etc/apt-cacher-ng/acng.conf && \
+    echo "PassThroughPattern: .*" >> /etc/apt-cacher-ng/acng.conf && \
     # Output all logs of apt-cacher-ng
     tail -f /var/log/apt-cacher-ng/*
 
