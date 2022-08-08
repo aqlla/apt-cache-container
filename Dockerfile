@@ -1,5 +1,5 @@
-FROM debian:bullseye-slim
-# FROM ubuntu:22.04
+# FROM debian:bullseye-slim
+FROM ubuntu:22.04
 
 ENV TERM linux
 ENV DEBIAN_FRONTEND noninteractive 
@@ -12,10 +12,11 @@ RUN apt-get update && \
 
 EXPOSE 3142
 
-CMD chmod 777 /var/cache/apt-cacher-ng && \
-    echo "PassThroughPattern: .*" >> /etc/apt-cacher-ng/acng.conf && \
+CMD tail -f /var/log/apt-cacher-ng/*
+    # chmod 777 /var/cache/apt-cacher-ng && \
+    # echo "PassThroughPattern: .*" >> /etc/apt-cacher-ng/acng.conf && \
     # Start the service
-    /etc/init.d/apt-cacher-ng start && \
+    # /etc/init.d/apt-cacher-ng start && \
     # Output all logs of apt-cacher-ng
-    tail -f /var/log/apt-cacher-ng/*
+    # tail -f /var/log/apt-cacher-ng/*
 
