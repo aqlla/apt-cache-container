@@ -1,10 +1,10 @@
-#FROM debian:bullseye-slim
-FROM ubuntu:22.04
+FROM debian:bullseye-slim
+# FROM ubuntu:22.04
 
 VOLUME ["/var/cache/apt-cacher-ng"]
 
 RUN apt-get update && \
-    bash -c 'yes | apt-get install -y apt-utils apt-cacher-ng' && \
+    bash -c 'yes | apt-get install -y apt-transport-https apt-cacher-ng' && \
     rm -rf /var/lib/apt/lists/*
 
 EXPOSE 3142
